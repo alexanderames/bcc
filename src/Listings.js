@@ -65,11 +65,13 @@ const LISTINGS = gql`
             const listingsToRender = data.makes
 
             return (
-              <div className="col col-center">
+              <div>
                 <header>
                   <div id="logo">vehicle<b>listings</b></div>
                 </header>
-                {listingsToRender.map(m => <Listing key={m.id} make={m} />)}
+                <div>
+                  {listingsToRender.map(m => <Listing key={m.id} make={m} />)}
+                </div>
               </div>
             )
           }}

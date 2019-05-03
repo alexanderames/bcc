@@ -69,46 +69,10 @@ header #logo .icon {
 main {
   display: block;
   margin: 0 auto;
-  margin-top: 5em;
+  margin-top: 2.2em;
   max-width: 50em;
 }
 
 ul {
   list-style: none;
-}
-
-/* GRID */
-
-.row {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.row-middle {
-  align-items: center;
-}
-
-.col {
-  flex-grow: 1;
-  flex-basis: 0;
-  max-width: 100%;
-}
-
-.col-start {
-  justify-content: flex-start;
-  text-align: left;
-}
-
-.col-center {
-  justify-content: center;
-  text-align: center;
-}
-
-.col-end {
-  justify-content: flex-end;
-  text-align: right;
 }
