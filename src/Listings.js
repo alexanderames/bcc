@@ -8,6 +8,22 @@ const NEW_LISTINGS = gql`
     newMake {
       id
       name
+      models {
+        name
+        options {
+          color
+          doorCount
+          drivetrain
+          fuelType
+          style
+          transmission
+        }
+      }
+      vehicles {
+        plateState
+        year
+        vin
+      }
     }
   }
 `
@@ -42,11 +58,11 @@ const LISTINGS = gql`
         document: NEW_LISTINGS,
         updateQuery: (prev, { subscriptionData }) => {
           if (!subscriptionData.data) return prev
-
           const newMake = subscriptionData.data.newMake
-
+          const exists = prev.feed.makes.find(({ id }) => id === newMake.id);
+          if (exists) return prev;
           return Object.assign({}, prev, {
-            Listings: [newMake, ...prev.makes],
+            makes: [newMake, ...prev.makes],
             __typename: prev.makes.__typename
           })
         }
